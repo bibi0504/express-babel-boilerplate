@@ -1,13 +1,14 @@
 import express from 'express';
 import loaders from './loaders';
+import config from './config';
 
 const startServer = async () => {
     const app = express();
 
     await loaders({ app });
 
-    app.listen(5000, () => {
-        console.log(`Server is running on port 5000`);
+    app.listen(config.port, () => {
+        console.log(`Server is running on port ${config.port}`);
     });
 };
 
